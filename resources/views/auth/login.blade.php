@@ -27,15 +27,17 @@
                     @csrf
 
                     <div class="mb-3">
-                        <label for="InputEmail" class="form-label">Email</label>
+                        <label for="InputEmail" class="form-label">Email:</label>
                         <input name="email" type="email" class="form-control" id="InputEmail"
                             aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
-                        <label for="InputPassword" class="form-label">Password</label>
+                        <label for="InputPassword" class="form-label">Password:</label>
                         <input name="password" type="password" class="form-control" id="InputPassword">
                     </div>
-                    <button type="submit" class="btn btn-primary">Accedi</button>
+                    <button type="submit" class="btn btn-secondary">Accedi</button>
+                    <p class="small mt-3">Non sei registrato?</p> <a href="{{route('register')}}" class="text-dark">Clicca qui</a>
+
                 </form>
             </div>
         </div>

@@ -44,7 +44,8 @@
                         <input name="password_confirmation" type="password" class="form-control" id="InputConfirmPassword">
                     </div>
                     
-                    <button type="submit" class="btn btn-primary">Registrati</button>
+                    <button type="submit" class="btn btn-secondary">Registrati</button>
+                    <p class="small mt-3">Già registrato?</p> <a href="{{route('login')}}" class="text-dark">Clicca qui</a>
                 </form>
             </div>
         </div>
