@@ -35,7 +35,7 @@
                         <label for="InputPassword" class="form-label">Password:</label>
                         <input name="password" type="password" class="form-control" id="InputPassword">
                     </div>
-                    <button type="submit" class="btn btn-secondary">Accedi</button>
+                    <button type="submit" class="btn btn-color">Accedi</button>
                     <p class="small mt-3">Non sei registrato?</p> <a href="{{route('register')}}" class="text-dark">Clicca qui</a>
 
                 </form>

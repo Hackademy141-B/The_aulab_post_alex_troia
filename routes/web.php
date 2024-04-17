@@ -16,4 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PublicController::class, 'home'])->name('homePage');
+
 Route::get('/article/create',[ArticleController::class, 'create'])->name('articleCreate');
+Route::post('/article/store', [ArticleController::class, 'store'])->name('articleStore');

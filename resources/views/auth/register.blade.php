@@ -28,23 +28,23 @@
                     
                     
                     <div class="mb-3">
-                        <label for="InputName" class="form-label">Nome</label>
+                        <label for="InputName" class="form-label">Nome:</label>
                         <input name="name" type="text" class="form-control" id="InputName" aria-describedby="nameHelp">
                     </div>
                     <div class="mb-3">
-                        <label for="InputEmail" class="form-label">Email</label>
+                        <label for="InputEmail" class="form-label">Email:</label>
                         <input name="email" type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
-                        <label for="InputPassword" class="form-label">Password</label>
+                        <label for="InputPassword" class="form-label">Password:</label>
                         <input name="password" type="password" class="form-control" id="InputPassword">
                     </div>
                     <div class="mb-3">
-                        <label for="InputConfirmPassword" class="form-label"> Conferma Password</label>
+                        <label for="InputConfirmPassword" class="form-label"> Conferma Password:</label>
                         <input name="password_confirmation" type="password" class="form-control" id="InputConfirmPassword">
                     </div>
                     
-                    <button type="submit" class="btn btn-secondary">Registrati</button>
+                    <button type="submit" class="btn btn-color">Registrati</button>
                     <p class="small mt-3">Già registrato?</p> <a href="{{route('login')}}" class="text-dark">Clicca qui</a>
                 </form>
             </div>
