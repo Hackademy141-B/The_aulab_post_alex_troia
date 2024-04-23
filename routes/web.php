@@ -19,3 +19,6 @@ Route::get('/', [PublicController::class, 'home'])->name('homePage');
 
 Route::get('/article/create',[ArticleController::class, 'create'])->name('articleCreate');
 Route::post('/article/store', [ArticleController::class, 'store'])->name('articleStore');
+Route::get('/article/index', [ArticleController::class, 'index'])->name('articleIndex');
+Route::get('/article/show/{article}', [ArticleController::class, 'show'])->name('articleShow');
+Route::get('/article/category/{category}', [ArticleController::class, 'byCategory'])->name('articlebyCategory');
