@@ -1,6 +1,6 @@
 <x-layout>
     <div class="container-fluid bg-secondary-grey text-center" style="max-width: 1100px; margin: 0 auto;">
-            <div class="row justify-content-center align-items-center mt-3 pt-3 backgraund-custom-sfondo">
+            <div class="row justify-content-center align-items-center mt-3 pt-3 bg-custom-sfondo">
                 <h1 class="display-1 text-white mt-5">
                     Inserisci un articolo
                 </h1>

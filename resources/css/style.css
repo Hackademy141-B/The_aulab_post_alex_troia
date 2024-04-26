@@ -70,3 +70,9 @@ html, body {
     color: #ffffff !important;
   }
   
+  .bg-custom-sfondo{
+    height: 170px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 600px;
+  }

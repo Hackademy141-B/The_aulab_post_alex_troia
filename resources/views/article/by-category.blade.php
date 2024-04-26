@@ -2,7 +2,7 @@
     <div class="container-fluid bg-secondary-grey text-center" style="max-width: 1100px; margin: 0 auto;">
         <div class="row justify-content-center align-items-center mt-5 pt-3 bg-custom-sfondo">
             <h1 class="display-1 text-white">
-                The Aulab Post
+                Categoria:{{$category->name}}
             </h1>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <x-layout>
     <div class="container-fluid bg-secondary-grey text-center" style="max-width: 1100px; margin: 0 auto;">
-        <div class="row justify-content-center align-items-center mt-5 pt-3">
+        <div class="row justify-content-center align-items-center mt-5 pt-3 bg-custom-sfondo">
             <h1 class="display-1 text-white">
                 Tutti gli Articoli
             </h1>
@@ -20,6 +20,7 @@
                 data="{{$article->created_at->format('d/m/Y')}}"
                 user="{{$article->user->name}}"
                 url="{{route('articleShow', compact('article'))}}"
+                urlCategory="{{route('articlebyCategory' , ['category' => $article->category->id])}}"
                 />
             </div>
             
