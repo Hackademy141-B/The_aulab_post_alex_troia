@@ -10,40 +10,59 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{route('homePage')}}"><i class="fa solid fa-house " style="color: #ffffff;"></i></a>
                 </li>
-                <li> <a href="{{route ('articleCreate')}}" class="nav-link">Inserisci un Articolo</a></li>
-                <li> <a href="{{route ('articleIndex')}}" class="nav-link">Tutti gli Articoli</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Benvenuto
-                    </a>
-                    <ul class="dropdown-menu">
-                        @guest
-                        <li><a class="dropdown-item" href="{{ route('register') }}">Registrati</a></li>
-                        @endguest
+                <div class="col-8 col-lg-3">
+                    <li class="nav-item dropdown">
                         @auth
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle ospite-link text-end me-0" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="this.classList.add('clicked');">
+                              Benvenuto {{ Auth::user()->name }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item" href="{{route('careers')}}">Lavora con noi!</a></li>
+                              @if(Auth::user()->is_writer)
+                                <li>
+                                  <a class="dropdown-item" href="{{route('articleCreate')}}">Inserisci un articolo</a>
+                                </li>
+                              @endif
+                              @if(Auth::user()->is_writer)
+                                <li>
+                                  <a class="dropdown-item" href="{{route('writerDashboard')}}">Dashboard Redattore</a>
+                                </li>
+                              @endif
+                              @if(Auth::user()->is_admin)
+                                <li><a class="dropdown-item" href="{{route('adminDashboard')}}">Dashboard Admin</a></li>
+                              @endif
+                              @if(Auth::user()->is_revisor)
+                                <li><a class="dropdown-item" href="{{route('revisorDashboard')}}">Dashboard del revisore</a></li>
+                              @endif
+                              <li><a class="dropdown-item" href="#" onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a></li>
+                              <form method="post" action="{{route('logout')}}" id="form-logout" class="d-none">
+                                @csrf
+                              </form>
+                            </ul>
+                          </li>
+                        @endauth
+                </div>
+                
+                @guest
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle text-end me-0" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="this.classList.add('clicked');">
+                            Benvenuto Ospite
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{route('register')}}">Registrati</a></li>
+                            <li><a class="dropdown-item" href="{{route('login')}}">Accedi</a></li>
+                          </ul>
+                        </li>
+                      @endguest
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li>
-                                <a class="dropdown-item" href="#"
-                                    onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">
-                                    Logout</a>
-                                <form action="{{ route('logout') }}" method="POST" id="form-logout" class="d-none">
-                                    @csrf
-                                </form>
-                            @endauth
                         </li>
                     </ul>
                 </li>
             </ul>
-            @auth
-                <p class="text-white">Ciao {{ Auth::user()->name }}</p> 
-            @else
-                <a href="{{ route('login') }}" class="text-white">Accedi</a>
-
-
-            @endauth
         </div>
     </div>
 </nav>
