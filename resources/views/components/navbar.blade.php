@@ -56,13 +56,14 @@
                           </ul>
                         </li>
                       @endguest
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
                         </li>
                     </ul>
                 </li>
             </ul>
+                <form class="d-flex" method="GET" action="{{route('articleSearch') }}">
+                  <input class="form-control me-2" type="search" name="query" placeholder="Cosa stai cercando?" aria-label="Search">
+                  <button class="btn btn-outline-info" type="submit" class="btn btn-color">Cerca</button>
+                </form>
         </div>
     </div>
 </nav>

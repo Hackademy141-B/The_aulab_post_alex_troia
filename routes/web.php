@@ -27,6 +27,7 @@ Route::get('/article/show/{article}', [ArticleController::class, 'show'])->name(
 Route::get('/article/category/{category}', [ArticleController::class, 'byCategory'])->name('articlebyCategory');
 Route::get('/careers', [PublicController::class, 'careers'])->name('careers');
 Route::post('/careers/submit', [PublicController::class, 'careersSubmit'])->name('careersSubmit');
+Route::get('/article/search' , [ArticleController::class , 'articleSearch'])->name('articleSearch');
 
 Route::middleware('admin')->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('adminDashboard');
