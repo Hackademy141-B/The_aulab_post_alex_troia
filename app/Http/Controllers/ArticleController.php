@@ -20,13 +20,13 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::orderBy('created_at', 'desc')->get();
+        $articles = Article::where('is_accepted' , true)->orderBy('created_at', 'desc')->get();
         return view('article.index', compact('articles'));
     }
 
     public function byCategory(Category $category)
     {
-        $articles = $category->articles()->orderBy('created_at', 'desc')->get();
+        $articles = $category->articles()->where('is_accepted' , true)->orderBy('created_at', 'desc')->get();
         return view('article.by-Category', compact('category', 'articles'));
     }
 
@@ -95,6 +95,10 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        foreach ($article->tags as $tag){
+            $article->tags()->detach ($tag);
+         }
+         $article->delete();
+         return redirect(route('writerDashboard'))->with('message', 'Hai correttamente cancellato l\'articolo scelto');
     }
 }

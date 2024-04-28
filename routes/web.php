@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\RevisorController;
+use App\Http\Controllers\WriterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +39,19 @@ Route::middleware('admin')->group(function(){
     Route::delete('/admin/delete/{category}/category',[AdminController::class, 'deleteCategory'])->name('adminDeleteCategory');
     Route::post('/admin/category/store',[AdminController::class, 'storeCategory'])->name('adminStoreCategory');
 });
+
+Route::middleware('revisor')->group(function(){
+    Route::get('/revisor/dashboard', [RevisorController::class, 'dashboard'])->name('revisorDashboard');
+    Route::post('/revisor/{article}/accept', [RevisorController::class, 'acceptArticle'])->name('revisorAcceptArticle');
+    Route::post('/revisor/{article}/reject', [RevisorController::class, 'rejectArticle'])->name('revisorRejectArticle');
+    Route::post('/revisor/{article}/undo', [RevisorController::class, 'undoArticle'])->name('revisorUndoArticle');
+    });
+
+    Route::middleware('writer')->group(function(){
+        Route::get('/article/create', [ArticleController::class, 'create'])->name('articleCreate');
+        Route::post('/article/store', [ArticleController::class, 'store'])->name('articleStore');
+        Route::get('/writer/dashboard', [WriterController::class, 'dashboard'])->name('writerDashboard');
+        Route::get('/article/{article}/edit', [ArticleController::class, 'edit'])->name('articleEdit');
+        Route::put('/article/{article}/update', [ArticleController::class, 'update'])->name('articleUpdate');
+        Route::delete('/article/{article}/destroy', [ArticleController::class, 'destroy'])->name('articleDestroy');
+    });

@@ -20,9 +20,27 @@
            </div>
            <hr>
            <p>{{$article->body}}</p>
-           <div class="text-center">
-            <a href="{{route('articleIndex')}}" class="btn btn-info text-white my-5">Torna indietro</a>
-           </div>
+           <div class="row">
+               <div class="col-md-3">
+                   @if(Auth::user() && Auth::user()->is_revisor)
+                   <form action="{{route('revisorRejectArticle', compact('article'))}}" method="POST">
+                    @csrf
+                    <button class="btn btn-danger text-white my-5" style="margin-right: 10px;">Rifiuta</button>
+                </form>
+                @endif
+            </div>
+            <div class="col-md-3 text-end">
+                @if(Auth::user() && Auth::user()->is_revisor)
+                <form action="{{route('revisorAcceptArticle', compact('article'))}}" method="POST">
+                    @csrf
+                    <button class="btn btn-success text-white my-5">Accetta</button>
+                </form>
+                @endif
+                <div class="text-center">
+                 <a href="{{route('articleIndex')}}" class="btn btn-info text-white my-5">Torna indietro</a>
+                </div>
+            </div>
+        </div>
         </div>
     </div>
 </x-layout>
