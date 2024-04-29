@@ -7,9 +7,16 @@
         <p class="card-text">
             {{ $subtitle }}
         </p>
-        <a href="{{ $urlCategory }}"
-            class="small text-muted d-flex justify-content-center align-items-center">{{ $category }}
-        </a>
+        @if ($category)
+            <a href="{{ $urlCategory }}"
+                class="small text-muted d-flex justify-content-center align-items-center">{{ $category }}
+            </a>
+        @else
+            <p class="small text-muted fst-italic text-capitalize">
+                Non Categorizzato
+            </p>
+        @endif
+
         @if ($tags)
 
             <p class="small fst-italic text-capitalize">

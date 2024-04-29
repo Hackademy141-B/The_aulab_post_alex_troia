@@ -14,6 +14,6 @@ class WriterController extends Controller
         $rejectedArticles = $articles->where('is_accepted', false);
         $unrevisionedArticles = $articles->where('is_accepted', NULL);
 
-        return view('writerDashboard', compact('acceptedArticles', 'rejectedArticles', 'unrevisionedArticles'));
+        return view('writer.dashboard', compact('acceptedArticles', 'rejectedArticles', 'unrevisionedArticles'));
     }
 }
