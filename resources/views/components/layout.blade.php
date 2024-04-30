@@ -12,15 +12,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    
+    <style>
+        body{
+            background-image: url(https://img.freepik.com/free-photo/top-view-old-french-newspaper-pieces_23-2149318857.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1714348800&semt=ais)}
+    </style>
 </head>
 
 <body>
     
     <x-navbar />
-    
-    {{$slot}}
-    
+    <div class="min-vh-100">
+        {{$slot}}
+    </div>
+    <x-footer />
 </body>
 
 </html>
