@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tag;
+use App\Models\User;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -166,6 +167,13 @@ class ArticleController extends Controller
          $article->delete();
          return redirect(route('writerDashboard'))->with('message', 'Hai correttamente cancellato l\'articolo scelto');
     }
+
+    public function byUser(User $user)
+    {
+        $articles = $user->articles()->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
+        return view('article.user', compact('user', 'articles'));
+    }
+
 }
 
 

@@ -1,6 +1,12 @@
 <nav class="navbar fixed-top navbar-expand-lg bg-primary-blue">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ route('homePage') }}">The Aulab Post</a>
+      <div>
+        <a class="navbar-brand" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+        <i class="fa-solid fa-bars" style="color: #ebe5e5;"></i>
+        <span class="ms-2">Sezioni</span>
+      </a> 
+    </div>
+       
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -67,3 +73,24 @@
         </div>
     </div>
 </nav>
+
+<div class="offcanvas offcanvas-start bg-sfondo" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <ol class="nav-item mx-auto">
+      <a class="nav-link1" href="{{route('articleIndex')}}"><h5>The Aulab Post</h5></a>
+    </ol>
+  </div>
+  @foreach($categories as $category)
+    <ol class="nav-item">
+      <a class="nav-link1" href="{{ route('articlebyCategory', ['category' => $category->id]) }}">{{ $category->name }}</a>
+    </ol>
+  @endforeach
+  <div class="offcanvas-body">
+    <div class="dropdown mt-3">
+      <form method="GET" action="{{ route('articleSearch') }}">
+        <input type="search" name="query" placeholder="Cosa stai cercando?" aria-label="Search">
+        <button type="submit" class="btn btn-color">Cerca</button>
+      </form>
+    </div>
+  </div>
+</div>
