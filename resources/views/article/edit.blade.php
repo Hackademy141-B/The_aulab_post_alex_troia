@@ -39,7 +39,7 @@
                         <div class="mb-3">
                             <label for="tags" class="form-label">Tags</label>
                             <input name="tags" class="form-control" id="tags" value="{{$article->tags->implode('name',',')}}">
-                            <span class="small fst-italic">Dividi ogni tag con una virgola</span>
+                            <span class="small fst-italic">Per inserire più tag, separali con una virgola.</span>
                         </div>
                         <div class="mb-3">
                             <label for="category" class="form-label">Categoria:</label>

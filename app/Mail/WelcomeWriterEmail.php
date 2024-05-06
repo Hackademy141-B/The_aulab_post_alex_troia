@@ -15,7 +15,7 @@ class WelcomeWriterEmail extends Mailable
 
     public function build()
     {
-        return $this->subject('Benvenuto come Redattore')->view('email.welcome-writer');
+        return $this->subject('Benvenuto come Redattore')->view('mail.welcome-writer');
                     
     }
 

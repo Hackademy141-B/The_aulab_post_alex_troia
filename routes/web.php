@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\WriterController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\RevisorController;
-use App\Http\Controllers\WriterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +58,6 @@ Route::middleware('revisor')->group(function(){
         Route::put('/article/{article}/update', [ArticleController::class, 'update'])->name('articleUpdate');
         Route::delete('/article/{article}/destroy', [ArticleController::class, 'destroy'])->name('articleDestroy');
     });
+
+    Route::post('/users/{id}/updateToWriter', [UserController::class, 'updateToWriter'])->name('usersUpdateToWriter');
+    

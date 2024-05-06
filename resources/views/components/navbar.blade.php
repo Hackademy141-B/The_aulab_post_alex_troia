@@ -30,24 +30,24 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @if (Auth::user()->is_writer)
-                                <li><a class="dropdown-item" href="{{ route('articleCreate') }}">Inserisci un
+                                <li><a class="dropdown-item nav-link1" href="{{ route('articleCreate') }}">Inserisci un
                                         articolo</a></li>
-                                <li><a class="dropdown-item" href="{{ route('writerDashboard') }}">Dashboard
+                                <li><a class="dropdown-item nav-link1" href="{{ route('writerDashboard') }}">Dashboard
                                         Redattore</a></li>
                             @endif
                             @if (Auth::user()->is_admin)
-                                <li><a class="dropdown-item" href="{{ route('adminDashboard') }}">Dashboard Admin</a>
+                                <li><a class="dropdown-item nav-link1" href="{{ route('adminDashboard') }}">Dashboard Admin</a>
                                 </li>
                             @endif
                             @if (Auth::user()->is_revisor)
-                                <li><a class="dropdown-item" href="{{ route('revisorDashboard') }}">Dashboard del
+                                <li><a class="dropdown-item nav-link1" href="{{ route('revisorDashboard') }}">Dashboard del
                                         revisore</a></li>
                             @endif
                             @if (!Auth::user()->is_admin && !Auth::user()->is_revisor && !Auth::user()->is_writer)
-                                <li><a class="dropdown-item" href="{{ route('careers') }}">Lavora con noi!</a></li>
+                                <li><a class="dropdown-item fw-bold" href="{{ route('careers') }}">Lavora con noi!</a></li>
                             @endif
                             <li>
-                                <a class="dropdown-item" href="#"
+                                <a class="dropdown-item nav-link1" href="#"
                                     onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
                             </li>
                             <form method="post" action="{{ route('logout') }}" id="form-logout" class="d-none">

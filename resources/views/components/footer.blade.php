@@ -26,35 +26,6 @@
       </section>
       <!-- End Section: Social media -->
   
-      <!-- Section: Newsletter -->
-  <section class="row d-flex justify-content-center mb-4 mx-auto">
-    <!-- Label -->
-    <div class="col-md-3 text-center">
-      <p class="pt-2">
-        <strong>Iscriviti alla nostra newsletter</strong>
-      </p>
-    </div>
-    <!-- End Label -->
-  
-    <!-- Email Input -->
-    <div class="col-md-5 col-12">
-      <form action="" method="POST">
-        @csrf
-      <div data-mdb-input-init class="form-outline mb-4 ml-0">
-        <input type="email" id="form5Example24" class="form-control" name="email" placeholder="Inserisci la tua mail..." />
-      </div>
-    </div>
-    <!-- End Email Input -->
-  
-    <!-- Subscribe Button -->
-    <div class="col-md-3">
-      <button type="submit" class="btn btn-outline-dark button-margin">Iscriviti</button>
-    </div>
-    </form>
-    <!-- End Subscribe Button -->
-  </section>
-  <!-- End Section: Newsletter -->
-  
       <!-- Copyright -->
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
         © 2024 Copyright:
