@@ -31,7 +31,7 @@ html, body {
   }
   
   .nav-link:hover{
-    color: #FFFFFF;
+    color: #eeeeee
   }
 
   .btn-color{
@@ -108,4 +108,19 @@ html, body {
 .container {
   padding-left: 50px;
   padding-right: 50px;
+}
+
+.ospite-link,
+.ospite-link:hover,
+.ospite-link:active,
+.ospite-link:focus {
+  color: #ffffff !important;
+}
+
+
+.nav-link,
+.nav-link:hover,
+.nav-link:active,
+.nav-link:focus {
+  color: #ffffff !important;
 }
