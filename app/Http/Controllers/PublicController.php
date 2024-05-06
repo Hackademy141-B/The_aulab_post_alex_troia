@@ -51,7 +51,7 @@ class PublicController extends Controller
                 
             }
             $user->update();
-            return redirect(route('homePage'))->with('message', 'Grazie per averci contattato!');
+            return redirect(route('homePage'))->with('message', 'Grazie per averci contattato!,La tua richiesta di candidatura è stata inviata con successo.');
 
 
 

@@ -20,40 +20,42 @@
                             class="fa solid fa-house " style="color: #ffffff;"></i></a>
                 </li>
                 <div class="col-8 col-lg-3">
+                    @auth
+                    @if (Auth::check())
                     <li class="nav-item dropdown">
-                        @auth
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle ospite-link text-end me-0" href="#" id="navbarDropdown"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                                onclick="this.classList.add('clicked');">
-                                Benvenuto {{ Auth::user()->name }}
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                @if (Auth::user()->is_writer)
-                                    <li><a class="dropdown-item" href="{{ route('articleCreate') }}">Inserisci un
-                                            articolo</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('writerDashboard') }}">Dashboard
-                                            Redattore</a></li>
-                                @endif
-                                @if (Auth::user()->is_admin)
-                                    <li><a class="dropdown-item" href="{{ route('adminDashboard') }}">Dashboard Admin</a>
-                                    </li>
-                                @endif
-                                @if (Auth::user()->is_revisor)
-                                    <li><a class="dropdown-item" href="{{ route('revisorDashboard') }}">Dashboard del
-                                            revisore</a></li>
-                                @endif
-                                <li><a class="dropdown-item" href="#"
-                                        onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
+                        <a class="nav-link dropdown-toggle ospite-link text-end me-0" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                            onclick="this.classList.add('clicked');">
+                            Benvenuto {{ Auth::user()->name }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @if (Auth::user()->is_writer)
+                                <li><a class="dropdown-item" href="{{ route('articleCreate') }}">Inserisci un
+                                        articolo</a></li>
+                                <li><a class="dropdown-item" href="{{ route('writerDashboard') }}">Dashboard
+                                        Redattore</a></li>
+                            @endif
+                            @if (Auth::user()->is_admin)
+                                <li><a class="dropdown-item" href="{{ route('adminDashboard') }}">Dashboard Admin</a>
                                 </li>
-                                <form method="post" action="{{ route('logout') }}" id="form-logout" class="d-none">
-                                    @csrf
-                                </form>
-                                @if (Auth::user()->is_writer)
-                                    <li><a class="dropdown-item" href="{{ route('careers') }}">Lavora con noi!</a></li>
-                                @endif
-                            </ul>
-                        </li>
+                            @endif
+                            @if (Auth::user()->is_revisor)
+                                <li><a class="dropdown-item" href="{{ route('revisorDashboard') }}">Dashboard del
+                                        revisore</a></li>
+                            @endif
+                            @if (!Auth::user()->is_admin && !Auth::user()->is_revisor && !Auth::user()->is_writer)
+                                <li><a class="dropdown-item" href="{{ route('careers') }}">Lavora con noi!</a></li>
+                            @endif
+                            <li>
+                                <a class="dropdown-item" href="#"
+                                    onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
+                            </li>
+                            <form method="post" action="{{ route('logout') }}" id="form-logout" class="d-none">
+                                @csrf
+                            </form>
+                        </ul>
+                    </li>
+                @endif
                     @endauth
                     </li>
                 </div>
@@ -87,9 +89,6 @@
           <a class="nav-link1" href="{{route('articleIndex')}}"><h5>The Aulab Post</h5></a>
       </ol>
   </div>
-      <div class="offcanvas-body">
-          <p class="text-muted">Nessun articolo trovato per la tua ricerca.</p>
-      </div>
       @foreach($categories as $category)
           <ol class="nav-item">
               <a class="nav-link1" href="{{ route('articlebyCategory', ['category' => $category->id]) }}">{{ $category->name }}</a>

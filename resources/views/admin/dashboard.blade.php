@@ -1,7 +1,7 @@
 <x-layout>
     <div class="container-fluid bg-secondary-grey text-center" style="max-width: 1100px; margin: 0 auto;">
         <div class="row justify-content-center align-items-center mt-5 pt-3 bg-custom-sfondo">
-            <h1 class="display-1 text-white">
+            <h1 class="display-3 text-white">
                 Bentornato, Amministratore
             </h1>
         </div>
@@ -22,11 +22,13 @@
     </div>
     @endif
     <div class="container bg-white" style="max-width: 1100px; margin: 0 auto;">
-        <div class="col-12">
-            <h2>
-                Richieste per ruolo Amministratore
-            </h2>
-            <x-requests-table :roleRequests="$adminRequests" role="amministratore"/>
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2>
+                    Richieste per ruolo Amministratore
+                </h2>
+                <x-requests-table :roleRequests="$adminRequests" role="amministratore"/>
+            </div>
         </div>
     </div>
     

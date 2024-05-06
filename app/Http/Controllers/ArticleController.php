@@ -87,7 +87,7 @@ class ArticleController extends Controller
 
 
 
-        return redirect(route('homePage'))->with('message', 'Articolo creato correttamente');
+        return redirect(route('homePage'))->with('message', 'Articolo creato correttamente,Attendi che un Revisore Accetti il tuo Articolo Inserito.');
     }
 
     /**
