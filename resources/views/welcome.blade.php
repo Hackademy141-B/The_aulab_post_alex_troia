@@ -25,7 +25,7 @@
         <div class="row justify-content-center align-items-center" style="max-width: 1100px;">
             @if ($articles->isEmpty())
                 <div class="col-12 text-center">
-                    <p class="lead">Nessun articolo disponibile al momento.</p>
+                    <p class="lead">Nessun articolo disponibile al momento. <hr>Registrati e chiedi di diventare redattore per inserire un Nuovo articolo</p>
                 </div>
             @else
                 @foreach($articles as $article)

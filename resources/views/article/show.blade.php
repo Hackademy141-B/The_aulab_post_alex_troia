@@ -1,9 +1,11 @@
 <x-layout>
     <div class="container-fluid bg-secondary-grey text-center" style="max-width: 1100px; margin: 0 auto;">
         <div class="row justify-content-center align-items-center mt-5 pt-3 bg-custom-sfondo">
-            <h1 class="display-3 text-white">
-                Titolo : {{ $article->title }}
-            </h1>
+            <div class="col-12 col-md-8">
+                 <h1 class="display-3 text-black">
+                        Titolo : {{ $article->title }}
+                </h1>
+            </div>
         </div>
     </div>
 
@@ -53,7 +55,7 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <a href="{{route('homePage')}}" class="btn btn-color my-5">Torna indietro</a>
+                    <a href="{{route('revisorDashboard')}}" class="btn btn-color my-5">Torna indietro</a>
                 </div>
                 
             </div>

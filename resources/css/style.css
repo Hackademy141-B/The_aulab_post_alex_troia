@@ -124,3 +124,23 @@ html, body {
 .nav-link:focus {
   color: #ffffff !important;
 }
+
+.img-fluid{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.container {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.text-custom{
+  color: #eeeeee;
+}
+
+h1.display-3 {
+  font-size: 40px;
+  padding: 8px 0;
+}
